@@ -36,6 +36,14 @@ case ${DATASET} in
     ANCHORS="[4,8,16,32]"
     RATIOS="[0.5,1,2]"
     ;;
+  nmpu_vhr)
+    TRAIN_IMDB="NMPU_VHR_train"
+    TEST_IMDB="NMPU_VHR_val"
+    STEPSIZE=[35000]
+    ITERS=200000
+    ANCHORS="[1,2,4,8,16]"
+    RATIOS="[0.5,1,2]"
+    ;;
   *)
     echo "No dataset given"
     exit

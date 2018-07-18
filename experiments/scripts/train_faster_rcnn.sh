@@ -1,4 +1,5 @@
 #!/bin/bash
+# usage: ./train_faster_rcnn.sh 0 nwpu_vhr res101
 
 set -x
 set -e
@@ -37,6 +38,14 @@ case ${DATASET} in
     STEPSIZE="[350000]"
     ITERS=490000
     ANCHORS="[4,8,16,32]"
+    RATIOS="[0.5,1,2]"
+    ;;
+  nmpu_vhr)
+    TRAIN_IMDB="NMPU_VHR_train"
+    TEST_IMDB="NMPU_VHR_val"
+    STEPSIZE="[35000]"
+    ITERS=200000
+    ANCHORS="[1,2,4,8,16]"
     RATIOS="[0.5,1,2]"
     ;;
   *)

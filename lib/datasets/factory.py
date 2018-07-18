@@ -13,6 +13,7 @@ from __future__ import print_function
 __sets = {}
 from datasets.pascal_voc import pascal_voc
 from datasets.coco import coco
+from datasets.NWPU_VHR import NWPU_VHR
 
 import numpy as np
 
@@ -38,6 +39,11 @@ for year in ['2015']:
   for split in ['test', 'test-dev']:
     name = 'coco_{}_{}'.format(year, split)
     __sets[name] = (lambda split=split, year=year: coco(split, year))
+
+# Set up NMPU_VHR_<split>
+__sets['NMPU_VHR_train'] =  lambda :NWPU_VHR('train')
+__sets['NMPU_VHR_val'] =  lambda :NWPU_VHR('val')
+
 
 
 def get_imdb(name):
