@@ -73,20 +73,19 @@ class NWPU_VHR(imdb):
                 'Path does not exist: {}'.format(image_path)
         return image_path
 
-    def _load_xml_filenames(self):
-        """
-        Load the indexes listed in this dataset's image set file.
-        """
-        # Example path to image set file:
-        xml_folder_path = os.path.join(self._data_path, "Annotations")
-        assert os.path.exists(xml_folder_path), \
-            'Path does not exist: {}'.format(xml_folder_path)
+    # def _load_xml_filenames(self):
+    #     """
+    #     Load the indexes listed in this dataset's image set file.
+    #     """
+    #     # Example path to image set file:
+    #     xml_folder_path = os.path.join(self._data_path, "Annotations")
+    #     assert os.path.exists(xml_folder_path), \
+    #         'Path does not exist: {}'.format(xml_folder_path)
 
-     	for dirpath, dirnames, filenames in os.walk(xml_folder_path):
-		
-        	xml_filenames = [xml_filename.split(".")[0] for xml_filename in filenames]
+    # 	for dirpath, dirnames, filenames in os.walk(xml_folder_path):
+    #     	xml_filenames = [xml_filename.split(".")[0] for xml_filename in filenames]
 
-        return xml_filenames
+    #     return xml_filenames
     
     def _load_image_set_index(self):
         """
@@ -230,7 +229,6 @@ class NWPU_VHR(imdb):
             '{:s}.txt')
         imagesetfile = os.path.join(
             self._data_path,
-	    'image_set',
             self._image_set + '.txt')
         cachedir = os.path.join(self._data_path, 'annotations_cache')
         aps = []

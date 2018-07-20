@@ -13,7 +13,7 @@ import numpy as np
 
 
 def parse_rec(filename):
-    """ Parse a NMPU_VHR ground truth file 
+    """ Parse a NWPU_VHR ground truth file 
         ground truth file format x1 y1 x2y2 label_name easy_or_not
     """
     classes = ['airplane', 'ship', 'storage tank', 'baseball diamond', 'tennis court', 'basketball court', 'ground track field', 'harbor', 'bridge', 'vehicle']

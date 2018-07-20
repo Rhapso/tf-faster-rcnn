@@ -40,9 +40,9 @@ for year in ['2015']:
     name = 'coco_{}_{}'.format(year, split)
     __sets[name] = (lambda split=split, year=year: coco(split, year))
 
-# Set up NMPU_VHR_<split>
-__sets['NMPU_VHR_train'] =  lambda :NWPU_VHR('train')
-__sets['NMPU_VHR_val'] =  lambda :NWPU_VHR('val')
+# Set up NWPU_VHR_<split>
+__sets['NWPU_VHR_train'] =  lambda :NWPU_VHR('train')
+__sets['NWPU_VHR_val'] =  lambda :NWPU_VHR('test')
 
 
 
