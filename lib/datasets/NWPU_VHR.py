@@ -228,6 +228,7 @@ class NWPU_VHR(imdb):
         annopath = os.path.join(
             self._xml_path,
             '{:s}.txt')
+        print(annopath)
         imagesetfile = os.path.join(
             self._data_path,
 	    'image_set',

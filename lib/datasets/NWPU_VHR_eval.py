@@ -20,18 +20,16 @@ def parse_rec(filename):
     objects = []
     with open(filename,'r') as f:
          for line in f.readlines():
-            lineArray = line.rstrip().split(' ')
-            if lineArray[-1] != '0':
-                continue
+            lineArray = line.rstrip().split(',')
             tl = lineArray[0:2]
             br = lineArray[2:4]
-            label = lineArray[4]
+            label = classes[int(lineArray[4])-1]
             objects.append({
                 'name': label,
-                'bbox': [float(tl[0]),
-                        float(tl[1]),
-                        float(br[0]),
-                        float(br[1]),
+                'bbox': [float(lineArray[0].strip('(').strip(')')),
+                        float(lineArray[1].strip('(').strip(')')),
+                        float(lineArray[2].strip('(').strip(')')),
+                        float(lineArray[3].strip('(').strip(')')),
                 ],
                 'difficult': 0,
             })
@@ -129,13 +127,12 @@ def voc_eval(detpath,
         # load
         with open(cachefile, 'r') as f:
             recs = cPickle.load(f)
-
     # extract gt objects for this class
     class_recs = {}
     npos = 0
     for imagename in imagenames:
         R = [obj for obj in recs[imagename] if obj['name'] == classname]
-        # print imagename," has ", len(R), classname
+        # print imagename," has ", len(R), classname ################# debug
         bbox = np.array([x['bbox'] for x in R])
         difficult = np.array([x['difficult'] for x in R]).astype(np.bool)
         det = [False] * len(R)
