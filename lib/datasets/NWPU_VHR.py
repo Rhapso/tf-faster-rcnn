@@ -82,9 +82,9 @@ class NWPU_VHR(imdb):
         assert os.path.exists(xml_folder_path), \
             'Path does not exist: {}'.format(xml_folder_path)
 
-     	for dirpath, dirnames, filenames in os.walk(xml_folder_path):
-		
-        	xml_filenames = [xml_filename.split(".")[0] for xml_filename in filenames]
+         for dirpath, dirnames, filenames in os.walk(xml_folder_path):
+        
+            xml_filenames = [xml_filename.split(".")[0] for xml_filename in filenames]
 
         return xml_filenames
     
@@ -231,7 +231,7 @@ class NWPU_VHR(imdb):
         print(annopath)
         imagesetfile = os.path.join(
             self._data_path,
-	    'image_set',
+        'image_set',
             self._image_set + '.txt')
         cachedir = os.path.join(self._data_path, 'annotations_cache')
         aps = []
